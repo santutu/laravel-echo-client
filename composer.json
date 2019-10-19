@@ -1,0 +1,51 @@
+{
+  "name": "santutu/laravel-echo-client",
+  "description": "Client for laravel echo server in backend",
+  "license": "MIT",
+  "keywords": [
+    "laravel",
+    "echo",
+    "server",
+    "client",
+    "broadcast"
+  ],
+  "authors": [
+    {
+      "name": "santutu",
+      "email": "santutu@naver.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.2",
+    "ext-json": "*",
+    "guzzlehttp/guzzle": "^6.3",
+    "illuminate/support": "^5.5|^6"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "4.*",
+    "laravel/framework": "5.5.x"
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Santutu\\LaravelEchoClient\\": "tests"
+    }
+  },
+  "autoload": {
+    "psr-4": {
+      "Santutu\\LaravelEchoClient\\": "src"
+    }
+  },
+  "scripts": {
+    "test": "phpunit"
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Santutu\\LaravelEchoClient\\ServiceProvider"
+      ],
+      "aliases": {
+        "EchoClient": "Santutu\\LaravelEchoClient\\Facade"
+      }
+    }
+  }
+}
