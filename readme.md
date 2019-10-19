@@ -1,6 +1,6 @@
 ## Laravel Echo Client
 
-__version 0.1__
+__version 0.1.1__
 
 ### Installation
 

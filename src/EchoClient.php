@@ -3,6 +3,7 @@
 namespace Santutu\LaravelEchoClient;
 
 
+use Illuminate\Support\Collection;
 use Santutu\LaravelEchoClient\Models\Channels;
 
 class EchoClient
@@ -75,7 +76,7 @@ class EchoClient
     }
 
 
-    public function getUsers(string $channelName): array
+    public function getUsers(string $channelName): Collection
     {
         if (mb_strpos($channelName, $this->presencePrefix) !== 0) {
             $channelName = $this->presencePrefix . $channelName;
@@ -83,7 +84,7 @@ class EchoClient
 
         $res = $this->client->get("apps/{$this->appId}/channels/{$channelName}/users?auth_key={$this->authKey}");
 
-        return json_decode($res->getBody()->getContents())->users;
+        return collect(json_decode($res->getBody()->getContents())->users);
     }
 
 
